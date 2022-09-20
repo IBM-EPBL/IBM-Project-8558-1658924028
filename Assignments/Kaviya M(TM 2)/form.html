@@ -1,0 +1,125 @@
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<script>
+function replace(){
+var k=document.cse.uname.value;
+var i=document.cse.pwd.value;
+var yes1=document.getElementById("man").checked;
+var no1=document.getElementById("woman").checked;
+var x=document.cse.email.value;
+var y=document.cse.Zip.value;
+var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf(".");
+if(k.length==0)
+{
+document.getElementById("userdemo").innerHTML="Please enter the user name";
+}
+else{
+document.getElementById("userdemo").innerHTML="Ok";
+}
+if((isNaN(i))||(i.length<6))
+{
+document.getElementById("passdemo").innerHTML="Please enter the 6 numerical charcters as password";
+}
+else{
+document.getElementById("passdemo").innerHTML="Good";
+}
+if((yes1==false)&&(no1==false))
+{
+document.getElementById("genderdemo").innerHTML="Please select any one";
+}
+else{
+document.getElementById("genderdemo").innerHTML="Selected";
+}
+ 
+if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  document.getElementById("maildemo").innerHTML="Please enter the correct format of mailid";
+  }
+else{
+document.getElementById("maildemo").innerHTML="correct format";
+
+}  
+if((isNaN(y)) ||(y.length<6 ))
+         {
+document.getElementById("zipdemo").innerHTML="Please enter 6 numerical letters as ZipCode";
+return false;
+         }
+else{
+document.getElementById("zipdemo").innerHTML="Correct format";
+
+}
+}
+</script>
+</head>
+<body style="background-color:yellow">
+<table align="center">
+<h1> USER REGISTRATION</h1>
+<form name="cse" action="a.html" onsubmit="return replace()">
+<div>
+<tr>
+<td>UserName:</td>
+<td><input type="text" name="uname" id="userdemo"><br></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="pwd"  id="passdemo"><br></td>
+</tr>
+<tr>
+<td>Gender:</td>
+<td>Male
+<input type="radio" name="Gender" value="male" id="man" >
+Female
+<input type="radio" name="Gender" value="female" id="woman" ><br>
+<p id="genderdemo"></p>
+</td>
+</tr>
+<tr>
+<td>Email-id:</td>
+<td><input type="text" name="email" id="maildemo" ><br></td>
+</tr>
+<tr>
+<td>Mobile:</td>
+<td><input type="text" name="mobile" ><br></td>
+</tr>
+<tr><td>
+Country:</td>
+
+<td><select id="con" >
+  
+<option value="India">India</option>
+<option value="America">America</option>
+<option value="Africa">Africa</option>
+<option value="Canada">Canada</option>
+<option value="Germany">Germany</option>
+<option value="Japan">Japan</option>
+<option value="Australia">Australia</option>
+<option value="France">France</option>
+<option value="Switzerland">Switzerland</option>
+<option value="China">China</option>
+<option value="Italy">Italy</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Russia">Russia</option>
+</select><br><br></td>
+</tr>
+<tr>
+<td>State:</td>
+<td><input type="text" name="state" ><br></td>
+</tr>
+<tr>
+<td>City:</td>
+<td><input type="text" name="city" ><br></td>
+</tr>
+<tr>
+<td>Pincode:</td>
+<td><input type="text" name="Pin" id="zipdemo"><br></td>
+</tr>
+<tr>
+<td><input type="submit" value="Submit"/ ><br></td>
+<td><input type="reset"></td>
+</tr>
+</div>
+</form>
+</table>
+</body>
+</html>
